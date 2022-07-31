@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Forms</h1>
+
+<div id="forms">
+ 
+  <table class="table">
+  <thead class="thead bg-dark">
+    <tr>
+     
+      <th scope="col tw">Full Name</th>
+      <th scope="col tw">Email</th>
+      <th scope="col tw">Phone</th>
+    </tr>
+  </thead>
+     <% @forms.each do |f| %>
+  <tbody>
+  
+    <tr>
+      
+      <td><%=link_to f.full_name, f %></td>
+      <td><%= f.email %></td>
+      <td><%= f.phone %></td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+
+</div>
+
+<%= link_to "New form", new_form_path %>

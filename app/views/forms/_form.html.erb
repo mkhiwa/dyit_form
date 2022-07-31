@@ -1,0 +1,41 @@
+
+<%= form_with(model: form) do |f| %>
+  <% if form.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+        <% form.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row mb-2 mt-4">
+<div class="col">
+  <div class="form-group">
+    <%= f.label :full_name, style: "display: block" %>
+    <%= f.text_field :full_name, class: "form-control" %>
+  </div>
+</div>
+<div class="col">
+  <div class="form-group">
+    <%= f.label :email, style: "display: block" %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+ </div>
+</div>
+
+    <div class="form-group mb-3">
+    <%= f.label :phone, style: "display: block" %>
+    <%= f.text_field :phone, class: "form-control", placeholder: "Please include area code in brackets" %>
+  </div>
+    <div class="form-outline mb-2 text-center">
+    <%= f.label :message, style: "display: block" %>
+    <%= f.text_area :message, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
